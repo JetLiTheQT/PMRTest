@@ -53,17 +53,17 @@ fun TopNavBar (navController: NavHostController, sharedViewModel: SharedViewMode
                     Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
                 }
             }
-        } else if (!canGoBack) {{
-            IconButton(onClick = { navController.navigate(Screen.Log.route) {
-                popUpTo(navController.graph.startDestinationId)
-                launchSingleTop = true
-            } }){
-                Icon(painter = painterResource(id = R.drawable.notification_icon), contentDescription = "Icon")
-            }
-        }}
-        else null,
+        } else null,
         actions = {
-
+            if (!canGoBack) {
+                IconButton(onClick = { navController.navigate(Screen.Log.route) {
+                    popUpTo(navController.graph.startDestinationId)
+                    launchSingleTop = true
+                } }) {
+                    Icon(painter = painterResource(id = R.drawable.notification_icon), contentDescription = "Icon")
+                }
+            }
         }
     )
+
 }

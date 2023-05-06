@@ -75,7 +75,7 @@ fun AllReceivedMessages(messages: SnapshotStateList<String>) {
             itemsIndexed(messages.asReversed()) { index, message ->
                 val expandContent = remember { mutableStateOf(false) }
                 val cardHeight by animateDpAsState(
-                    targetValue = if (expandContent.value) 200.dp else 100.dp,
+                    targetValue = if (expandContent.value) 150.dp else 60.dp,
                     animationSpec = tween(durationMillis = 300)
                 )
 
@@ -84,6 +84,8 @@ fun AllReceivedMessages(messages: SnapshotStateList<String>) {
                         .fillMaxWidth()
                         .height(cardHeight)
                         .clickable { expandContent.value = !expandContent.value },
+                    backgroundColor = MaterialTheme.colors.secondaryVariant,
+                    elevation = 4.dp
                 ) {
                     Column(
                         modifier = Modifier.padding(16.dp),
@@ -93,14 +95,16 @@ fun AllReceivedMessages(messages: SnapshotStateList<String>) {
                             text = message,
                             style = MaterialTheme.typography.body1,
                             maxLines = if (expandContent.value) Int.MAX_VALUE else 1,
-                            overflow = TextOverflow.Ellipsis
+                            overflow = TextOverflow.Ellipsis,
+                            color = MaterialTheme.colors.onBackground
                         )
                         if (expandContent.value) {
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
                                 text = "Index: $index",
                                 style = MaterialTheme.typography.h6,
-                                textAlign = TextAlign.Center
+                                textAlign = TextAlign.Center,
+                                color = MaterialTheme.colors.onSurface
                             )
                         }
                     }
@@ -114,6 +118,7 @@ fun AllReceivedMessages(messages: SnapshotStateList<String>) {
         }
     }
 }
+
 
 
 
