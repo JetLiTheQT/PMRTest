@@ -5,126 +5,38 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.*
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import com.example.pmrtest.ui.theme.PMRTestTheme
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.example.pmrtest.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
 
-    private val messages = mutableStateListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Listen for messages in the Firebase Realtime Database
-        val database = FirebaseDatabase.getInstance()
-        val messagesRef = database.getReference("messages")
-
-        messagesRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                messages.clear()
-                for (child in snapshot.children) {
-                    val message = child.child("message").getValue(String::class.java) ?: "Default Message"
-                    messages.add(message)
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Handle the error
-            }
-        })
 
         setContent {
-            PMRTestTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-//                    RetrieveToken() // COMMENTED OUT SINCE I ALREADY HAVE MY TOKEN. IF YOU NEED YOUR TOKEN CALL THIS FUNCTION AND CHECK THE LOG
-                    AllReceivedMessages(messages) //For a log of all the times the patient has fallen
+            AppTheme {
+                MyApp{
+                    MainScreen()
                 }
+
             }
         }
     }
 }
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AllReceivedMessages(messages: SnapshotStateList<String>) {
-    var animateNewCard by remember { mutableStateOf(false) }
-    Column(
-        modifier = Modifier.padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "All Received Messages",
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
-        LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            contentPadding = PaddingValues(top = 8.dp)
-        ) {
-            itemsIndexed(messages.asReversed()) { index, message ->
-                val expandContent = remember { mutableStateOf(false) }
-                val cardHeight by animateDpAsState(
-                    targetValue = if (expandContent.value) 200.dp else 100.dp,
-                    animationSpec = tween(durationMillis = 300)
-                )
-
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(cardHeight)
-                        .clickable { expandContent.value = !expandContent.value },
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            text = message,
-                            style = MaterialTheme.typography.bodyMedium,
-                            maxLines = if (expandContent.value) Int.MAX_VALUE else 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                        if (expandContent.value) {
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Text(
-                                text = "Index: $index",
-                                style = MaterialTheme.typography.bodyMedium,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-    LaunchedEffect(messages.size) {
-        if (messages.size > 1) {
-            animateNewCard = true
-        }
+fun MyApp(content: @Composable () -> Unit) {
+    Surface {
+        content()
     }
 }
+
 
 
 
