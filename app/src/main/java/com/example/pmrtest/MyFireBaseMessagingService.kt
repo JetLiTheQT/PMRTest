@@ -2,11 +2,8 @@ package com.example.pmrtest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -26,7 +23,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val messagesRef = database.getReference("messages")
         messagesRef.push().setValue(mapOf("title" to title, "message" to message))
 
-        // Show the notification
+        // Show the notification within or outside of the app
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelId = "default"
             val channelName = "Default Channel"
@@ -59,7 +56,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        // Save the token to your app's server or shared preferences
+        // Save the token to the app's server or shared preferences
         saveTokenToServer(token)
     }
 }

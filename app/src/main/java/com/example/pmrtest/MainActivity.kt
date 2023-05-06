@@ -69,34 +69,17 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             PMRTestTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
 //                    RetrieveToken() // COMMENTED OUT SINCE I ALREADY HAVE MY TOKEN. IF YOU NEED YOUR TOKEN CALL THIS FUNCTION AND CHECK THE LOG
-//                    snackbarCurrentReceivedFallDetection(messages)
                     AllReceivedMessages(messages) //For a log of all the times the patient has fallen
                 }
             }
         }
     }
 }
-
-//@Composable
-//fun snackbarCurrentReceivedFallDetection(messages: SnapshotStateList<String>) {
-//    val context = LocalContext.current
-//    val latestMessage = messages.lastOrNull()
-//    if (latestMessage == null) return // Check for null before showing the snackbar
-//    LaunchedEffect(Unit) {
-//        Snackbar.make(
-//            (context as Activity).findViewById(android.R.id.content),
-//            latestMessage,
-//            Snackbar.LENGTH_LONG
-//        ).show()
-//    }
-//}
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
