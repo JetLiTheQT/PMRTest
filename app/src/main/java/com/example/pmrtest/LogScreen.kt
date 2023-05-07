@@ -52,7 +52,7 @@ fun LogScreen(navController: NavHostController) {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    //                    RetrieveToken() // COMMENTED OUT SINCE I ALREADY HAVE MY TOKEN. IF YOU NEED YOUR TOKEN CALL THIS FUNCTION AND CHECK THE LOG
+//                    RetrieveToken() // COMMENTED OUT SINCE I ALREADY HAVE MY TOKEN. IF YOU NEED YOUR TOKEN CALL THIS FUNCTION AND CHECK THE LOG
                     AllReceivedMessages(messages) //For a log of all the times the patient has fallen
                 }
             }

@@ -30,35 +30,60 @@ fun HomeScreen(navController: NavHostController) { }
 
 @Composable
 fun MainScreen() {
+//    val navController = rememberNavController()
+//    val sharedViewModel = viewModel<SharedViewModel>()
+//    Scaffold(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .padding(0.dp),
+//        topBar = { TopNavBar(navController = navController, sharedViewModel = sharedViewModel) },
+//        content = { innerPadding ->
+//            Box(modifier = Modifier.padding(innerPadding)) {
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Column(
+//                        modifier = Modifier
+//                            .fillMaxSize()
+//                            .padding(16.dp),
+//                        verticalArrangement = Arrangement.spacedBy(16.dp)
+//                    ) {
+//                        WelcomeText()
+//                        PatientInfoCard()
+//                        MedicationSchedule()
+//                        HealthStatisticsCard()
+//                    }
+//                }
+//                AppNavigator(navController)
+//            }
+//        }
+//    )
     val navController = rememberNavController()
     val sharedViewModel = viewModel<SharedViewModel>()
-    Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(0.dp),
-        topBar = { TopNavBar(navController = navController, sharedViewModel = sharedViewModel) },
-        content = { innerPadding ->
-            Box(modifier = Modifier.padding(innerPadding)) {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        WelcomeText()
-                        PatientInfoCard()
-                        MedicationSchedule()
-                        HealthStatisticsCard()
-                    }
-                }
-                AppNavigator(navController)
+
+    TopNavBarWithDrawer(
+        navController = navController,
+        sharedViewModel = sharedViewModel
+    ) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                WelcomeText()
+                PatientInfoCard()
+                MedicationSchedule()
+                HealthStatisticsCard()
             }
         }
-    )
+        AppNavigator(navController)
+    }
 }
 
 @Composable
