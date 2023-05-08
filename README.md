@@ -14,7 +14,7 @@ This is an Android app written in Kotlin that receives push notifications from a
 
 You will need the following to use this code:
 
-1. Android Studio installed on your computer
+1. Android Studio and Python installed on your computer
 2. Your own `google-services.json` and `[project_name]-firebase-adminsdk.json` files, which you can download from the Firebase console
 
 ## Firebase Console Setup
