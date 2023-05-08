@@ -21,7 +21,7 @@ You will need the following to use this code:
 
 Follow these steps to create a new project on the Firebase console, get the FCM private token, and download the necessary files:
 
-## Create a new project and download `google-services.json`
+### Create a new project and download `google-services.json`
 
 1. Go to the [Firebase Console](https://console.firebase.google.com/).
 2. Sign in with your Google account if you haven't already.
@@ -36,12 +36,12 @@ Follow these steps to create a new project on the Firebase console, get the FCM 
 11. Download the `google-services.json` file by clicking on the "Download google-services.json" button. This file will be used in your Android project.
 12. Click "Next" until you reach the "Firebase Console" screen. You can close this window since you already have the `google-services.json` file.
 
-## Get the FCM private token (Server key)
+### Get the FCM private token (Server key)
 
 1. In the left-side menu, click on "Cloud Messaging."
 2. In the "Project credentials" section, you will find your FCM private token, also called the "Server key." Copy this key and keep it safe, as you'll need it to send push notifications from your Python script.
 
-## Download `[project_name]-firebase-adminsdk.json`
+### Download `[project_name]-firebase-adminsdk.json`
 
 1. In the left-side menu of your Firebase Console, click on "Realtime Database."
 2. Click on "Create database" and follow the on-screen instructions to set up the database.
