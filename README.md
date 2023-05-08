@@ -31,7 +31,7 @@ Follow these steps to create a new project on the Firebase console, get the FCM 
 6. From the left-side menu, click on the gear icon (⚙️) and select "Project settings."
 7. In the "General" tab, scroll down to find the "Your apps" section.
 8. Click on the Android icon to add an Android app to your project.
-9. Fill in the "Android package name" and "App nickname" fields. The package name can be found in your Android Studio project's `AndroidManifest.xml` file or `build.gradle` file. It usually follows the format `com.example.appname`.
+9. Fill in the "Android package name" and "App nickname" fields. The package name is `com.example.PMRTest`.
 10. Click "Register app."
 11. Download the `google-services.json` file by clicking on the "Download google-services.json" button. This file will be used in your Android project.
 12. Click "Next" until you reach the "Firebase Console" screen. You can close this window since you already have the `google-services.json` file.
