@@ -51,7 +51,7 @@ Now you have both the `google-services.json` and `[project_name]-firebase-admins
 ## Installation
 
 + Clone the repository:
-  +   git clone https://github.com/JetLiTheQT/PMRTest.git
+  +   git clone https://github.com/JetLiTheQT/pmrtest.git
 + Open the project in Android Studio
 + Add your google-services.json and [project_name]-firebase-adminsdk.json files to the app directory
 + Build and run the app on your device
