@@ -8,8 +8,6 @@ This is an Android app written in Kotlin that receives push notifications from a
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Requirements
 
