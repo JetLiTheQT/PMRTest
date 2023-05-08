@@ -11,8 +11,10 @@ This is an Android app written in Kotlin that receives push notifications from a
 
 ## Requirements
 
-In order to use this code, you will need to download your own google-services.json and [project_name]-firebase-adminsdk.json files from the Firebase console.
+You will need the following to use this code:
 
+1. Android Studio installed on your computer
+2. Your own `google-services.json` and `[project_name]-firebase-adminsdk.json` files, which you can download from the Firebase console
 ## Installation
 
 + Clone the repository:
