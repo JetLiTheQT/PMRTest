@@ -17,7 +17,7 @@ You will need the following to use this code:
 1. Android Studio installed on your computer
 2. Your own `google-services.json` and `[project_name]-firebase-adminsdk.json` files, which you can download from the Firebase console
 
-# Firebase Console Setup
+## Firebase Console Setup
 
 Follow these steps to create a new project on the Firebase console, get the FCM private token, and download the necessary files:
 
