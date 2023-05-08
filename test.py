@@ -4,7 +4,7 @@ from firebase_admin import messaging
 from datetime import datetime
 
 # Change source for the adminsdk, youll find it in app/src/ within the github repo
-cred = credentials.Certificate("[DIRECTORY LOCATION FOR YOUR FIRE-ADMINSDK JSON]") 
+cred = credentials.Certificate("[DIRECTORY\\LOCATION\\FOR\\YOUR\\FIRE-ADMINSDK.JSON]") 
 firebase_admin.initialize_app(cred)
 
 def send_push_notification(token, message):
