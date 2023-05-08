@@ -59,7 +59,7 @@ Now you have both the `google-services.json` and `[project_name]-firebase-admins
 ## Usage
 
 + Open the app on your device
-+ Send a push notification using the Python script included in the python directory:
++ Before you can send a push notification by running the Python script, you'll need to:
   + Change the source for the adminsdk by replacing [DIRECTORY LOCATION FOR YOUR FIRE-ADMINSDK JSON] with the directory location for your [project_name]-firebase-adminsdk.json file. You'll find it in app/src/ within the GitHub repo.
   + Retrieve your FCM token by uncommenting the Retrieve_token() function in the LogScreen page of the app. You can find your FCM token in Android Studio's log. Copy the FCM token and replace [FCM TOKEN] with it in the test.py file.
-+ The push notification should be received and displayed in the app
++ After running the python script, the push notification should be received and displayed in the app and firebase real time database!
