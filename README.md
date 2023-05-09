@@ -1,5 +1,5 @@
 # PMRTest Android App
-
+[![LICENSE](https://img.shields.io/github/license/jetlitheqt/pmrtest?style=flat-square)](LICENSE)
 
 This is an Android app written in Kotlin that receives push notifications from a Python script. The app uses Firebase Cloud Messaging and the Realtime Database to receive and display push notifications.
 
