@@ -3,6 +3,9 @@
 
 This is an Android app written in Kotlin that receives push notifications from a Python script. The app uses Firebase Cloud Messaging and the Realtime Database to receive and display push notifications.
 
+# Example Gif
+![Alt Text](https://github.com/JetLiTheQT/pmrtest/blob/master/done.gif)
+
 ## Table of Contents
 
 - [Requirements](#requirements)
